@@ -1,0 +1,12 @@
+﻿@model IEnumerable<App.UI.ViewModels.ProductViewModel>
+
+@{
+    ViewData["Title"] = "Produtos Cadastrados";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a class="btn btn-info" asp-action="Create">Novo Produto</a>
+</p>
+<partial name="_ProductsList" />

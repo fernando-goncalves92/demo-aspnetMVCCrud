@@ -1,0 +1,39 @@
+﻿@using App.UI.Extensions
+@model App.UI.ViewModels.SupplierViewModel
+
+@{
+    ViewData["Title"] = "Detalhes Fornecedor";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>    
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Document)
+        </dt>
+        <dd class="col-sm-10">
+            @this.FormatDocument(Model.SupplierType, Model.Document)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-dark" asp-action="Edit" asp-route-id="@Model.Id">Editar</a>
+    <a class="btn btn-info" asp-action="Index">Voltar</a>
+</div>
+
+
+<partial name="_AddressDetails" />
