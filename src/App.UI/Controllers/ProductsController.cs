@@ -11,6 +11,7 @@ using System.IO;
 
 namespace App.UI.Controllers
 {
+    [Route("products")]
     public class ProductsController : Controller
     {
         private readonly IProductRepository _productRepository;
@@ -29,6 +30,7 @@ namespace App.UI.Controllers
             return View(_mapper.Map<IEnumerable<ProductViewModel>>(await _productRepository.GetProductsSuppliers()));
         }
 
+        [HttpGet("{id:guid}")]
         public async Task<IActionResult> Details(Guid id)
         {
             var productViewModel = await GetProduct(id);
@@ -38,6 +40,7 @@ namespace App.UI.Controllers
             return View(productViewModel);
         }
 
+        [HttpGet("create")]
         public async Task<IActionResult> Create()
         {
             var productViewModel = new ProductViewModel();
@@ -47,7 +50,7 @@ namespace App.UI.Controllers
             return View(productViewModel);
         }
 
-        [HttpPost]
+        [HttpPost("create")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProductViewModel productViewModel)
         {
@@ -69,6 +72,7 @@ namespace App.UI.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet("edit/{id:guid}")]
         public async Task<IActionResult> Edit(Guid id)
         {
             var productViewModel = await GetProduct(id);
@@ -78,7 +82,7 @@ namespace App.UI.Controllers
             return View(productViewModel);
         }
 
-        [HttpPost]
+        [HttpPost("edit/{id:guid}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, ProductViewModel productViewModel)
         {
@@ -114,6 +118,7 @@ namespace App.UI.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet("delete/{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var productViewModel = await GetProduct(id);
@@ -123,7 +128,7 @@ namespace App.UI.Controllers
             return View(productViewModel);
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost("delete/{id:guid}"), ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
