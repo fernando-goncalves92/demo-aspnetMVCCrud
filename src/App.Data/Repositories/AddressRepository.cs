@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using App.Data.Context;
 using App.Domain.Entities;
-using App.Domain.Interfaces;
+using App.Domain.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace App.Data.Repositories

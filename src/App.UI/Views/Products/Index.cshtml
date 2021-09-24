@@ -6,7 +6,9 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<p>
+<vc:Summary></vc:Summary>
+
+<p supress-by-claim-name="Product" supress-by-claim-value="Create">
     <a class="btn btn-info" asp-action="Create">Novo Produto</a>
 </p>
 <partial name="_ProductsList" />

@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using App.Data.Context;
 using App.Domain.Entities;
-using App.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using App.Domain.Interfaces.Repositories;
 
 namespace App.Data.Repositories
 {

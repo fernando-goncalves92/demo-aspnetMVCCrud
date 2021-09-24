@@ -53,7 +53,8 @@ namespace App.UI
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/error/500");
+                app.UseStatusCodePagesWithRedirects("/error/{0}");
                 app.UseHsts();
             }
 
@@ -63,7 +64,6 @@ namespace App.UI
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseGlobalizationConfig();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");

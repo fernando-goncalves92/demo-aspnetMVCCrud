@@ -7,8 +7,10 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<p>
-    <a class="btn btn-info" asp-action="Create">Novo Fornecedor</a>
+<vc:Summary></vc:Summary>
+
+<p supress-by-claim-name="Supplier" supress-by-claim-value="Create" class="btn btn-info">
+    <a asp-action="Create">Novo Fornecedor</a>
 </p>
 <table class="table">
     <thead class="thead-dark">
@@ -38,9 +40,22 @@
                 @Html.DisplayFor(modelItem => item.Active)
             </td>
             <td class="text-right">
-                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><spam class="fa fa-search"></spam></a>
-                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><spam class="fa fa-pencil-alt"></spam></a>
-                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><spam class="fa fa-trash"></spam></a>
+                <a class="btn btn-info" 
+                   asp-action="Details" 
+                   asp-route-id="@item.Id"><spam class="fa fa-search"></spam>
+                </a>
+                <a supress-by-claim-name="Supplier" 
+                   supress-by-claim-value="Edit"
+                   class="btn btn-warning" 
+                   asp-action="Edit" 
+                   asp-route-id="@item.Id"><spam class="fa fa-pencil-alt"></spam>
+                </a>
+                <a supress-by-claim-name="Supplier" 
+                   supress-by-claim-value="Delete"
+                   class="btn btn-danger" 
+                   asp-action="Delete" 
+                   asp-route-id="@item.Id"><spam class="fa fa-trash"></spam>
+                </a>
             </td>
         </tr>
 }
